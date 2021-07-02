@@ -1,0 +1,3 @@
+C:/dev/2dGraphics/build-vscode/CMakeFiles/ALL_BUILD.dir
+C:/dev/2dGraphics/build-vscode/CMakeFiles/ZERO_CHECK.dir
+C:/dev/2dGraphics/build-vscode/src/CMakeFiles/Paint.dir

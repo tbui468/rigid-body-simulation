@@ -2,14 +2,14 @@ Rigid-body physics written in C++ and using SDL2 for graphics.
 
 Only tested on Windows with Visual Studio 16 2019.
 
-Install cmake \n
-Install Visual Studio 16 2019 \n
+Install cmake.
+Install Visual Studio 16 2019.
 
-cd rigid-body-simulation \n
-mkdir build \n
-cd build \n
-cmake .. \n
-cmake --build . \n
+cd rigid-body-simulation<br>
+mkdir build<br>
+cd build<br>
+cmake ..<br>
+cmake --build .<br>
 
 The executable is in build/src/Debug.
 

@@ -5,7 +5,7 @@
 #include "Drawable.hpp"
 #include "Screen.hpp"
 
-namespace paint {
+namespace rbs {
 //for normalizing coordinate system
 //(0,0) at center of screen
 //x axis: left is negative, and right is positive

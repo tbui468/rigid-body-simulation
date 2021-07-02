@@ -7,7 +7,7 @@
 #include "Screen.hpp"
 
 
-namespace paint {
+namespace rbs {
 
 //stack all translations and scaling 
 class Drawable {

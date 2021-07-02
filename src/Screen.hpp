@@ -6,7 +6,7 @@
 #include <vector>
 #include "Math.hpp"
 
-namespace paint {
+namespace rbs {
 
 struct Vec2;
 struct Index;

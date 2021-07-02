@@ -9,7 +9,7 @@
 #include <math.h>
 
 
-namespace paint {
+namespace rbs {
 
 
 struct LinearCoefficients {

@@ -17,7 +17,7 @@
 #include "Ball.hpp"
 #include "Paddle.hpp"
 
-using namespace paint;
+using namespace rbs;
 
 
 int main()

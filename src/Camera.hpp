@@ -5,7 +5,7 @@
 #include "Drawable.hpp"
 #include "Math.hpp"
 
-namespace paint {
+namespace rbs {
 
 class Camera {
 private:

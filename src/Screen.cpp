@@ -2,7 +2,7 @@
 #include <memory>
 #include <assert.h>
 
-namespace paint
+namespace rbs
 {
 
 

@@ -3,7 +3,7 @@
 
 #include <iostream>
 
-namespace paint
+namespace rbs
 {
 
     struct Index

@@ -6,7 +6,7 @@
 #include "Math.hpp"
 #include "Vertex.hpp"
 
-namespace paint {
+namespace rbs {
 
 class Entity {
 private:

@@ -5,7 +5,7 @@
 #include "Math.hpp"
 #include "Shape.hpp"
 
-namespace paint{
+namespace rbs{
 
 class Paddle : public Entity {
 private:

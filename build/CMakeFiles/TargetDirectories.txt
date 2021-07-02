@@ -1,0 +1,3 @@
+C:/dev/2dGraphics/build/CMakeFiles/ALL_BUILD.dir
+C:/dev/2dGraphics/build/CMakeFiles/ZERO_CHECK.dir
+C:/dev/2dGraphics/build/src/CMakeFiles/Physics.dir

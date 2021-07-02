@@ -4,7 +4,7 @@
 #include "Math.hpp"
 #include <vector>
 
-namespace paint {
+namespace rbs {
 
 struct Vertex {
     std::vector<Vec2> vertexArray;

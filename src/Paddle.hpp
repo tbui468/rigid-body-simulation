@@ -14,9 +14,9 @@ private:
     float m_angularSpeed;
 public:
 
-    //Paddle(float width, float height, float angularSpeed): Entity(Shape::makeStar(60.0f, 60.0f, 3)), m_width(width), m_height(height), m_angularSpeed(angularSpeed) {};
-    Paddle(float width, float height, float angularSpeed): Entity(Shape::makeTriangle(60.0f)), m_width(width), m_height(height), m_angularSpeed(angularSpeed) {};
-//    Paddle(float width, float height, float angularSpeed): Entity(Shape::makeRectangle(width, height)), m_width(width), m_height(height), m_angularSpeed(angularSpeed) {};
+    Paddle(float width, float height, float angularSpeed): Entity(Shape::makeStar(60.0f, 60.0f, 3)), m_width(width), m_height(height), m_angularSpeed(angularSpeed) {};
+    //Paddle(float width, float height, float angularSpeed): Entity(Shape::makeTriangle(60.0f)), m_width(width), m_height(height), m_angularSpeed(angularSpeed) {};
+//Paddle(float width, float height, float angularSpeed): Entity(Shape::makeRectangle(width, height)), m_width(width), m_height(height), m_angularSpeed(angularSpeed) {};
     float getWidth() const {
         return m_width;
     }

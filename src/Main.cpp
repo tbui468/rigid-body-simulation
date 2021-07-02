@@ -20,10 +20,7 @@
 using namespace paint;
 
 
-
-
 int main()
-//int main()
 {
     Screen screen(800, 600);
 
@@ -35,14 +32,12 @@ int main()
     Paddle paddle2(20.0f, 200.0f, -0.01f);
     Paddle paddle4(20.0f, 200.0f, -0.01f);
 
-    paddle.moveTo({-20.0f, -150.0f});
-    paddle2.moveTo({0.0f, -150.0f});
+    paddle.moveTo({-100.0f, -150.0f});
+    paddle2.moveTo({100.0f, -150.0f});
     paddle4.moveTo({-20.0f, 150.0f});
 
     paddle.rotateBy(3.14f/2.0f);
 
-    Paddle paddle3(20.0f, 20.0f, 0.0f);
-    paddle3.moveTo({-390.0f, 290.0f});
 
     std::vector<Ball> balls;
 
@@ -157,12 +152,10 @@ int main()
 
         paddle.update();
         paddle2.update();
-        paddle3.update();
         paddle4.update();
 
         camera.draw(paddle.getDrawable());
         camera.draw(paddle2.getDrawable());
-        //camera.draw(paddle3.getDrawable());
         camera.draw(paddle4.getDrawable());
 
         screen.render();

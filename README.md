@@ -1,4 +1,4 @@
-Rigid-body physics written in C++ and using SDL2 for graphics.
+Rigid-body physics written in C++ and using SDL2 for window/graphics.
 
 Only tested on Windows with Visual Studio 16 2019.
 

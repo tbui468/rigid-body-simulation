@@ -108,8 +108,8 @@ public:
 
         Vec2 radius = intersection - paddle.m_translation;
         Vec2 rHat = radius * (1.0f/radius.magnitude());
-        rHat = paddle.getAngularSpeed() > 0.000f ? rot * rHat : rot *  rHat;
-        float rMag = radius.magnitude() * paddle.getAngularSpeed();
+        rHat = paddle.m_angularSpeed > 0.000f ? rot * rHat : rot *  rHat;
+        float rMag = radius.magnitude() * paddle.m_angularSpeed;
         Vec2 rotVector = rHat * rMag;
 
         Vec2 term1 = side * ((rotVector + m_velocity) * side) * 0.5f; //side velocity

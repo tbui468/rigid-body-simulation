@@ -20,7 +20,8 @@ struct LinearCoefficients {
 
 class Ball : public Entity{
 private:
-    inline static const float g = -0.03f;
+    inline static const float g = -0.03f; //this really should be global in Main.cpp
+public:
     float m_radius;
     Vec2 m_velocity;
 public:
@@ -56,14 +57,6 @@ public:
         m_velocity.y = velocity.y;
     }
 
-    Vec2 getVelocity() const {
-        return m_velocity;
-    }
-
-    float getRadius() const {
-        return m_radius;
-    }
-
     std::optional<Vec2> entityCollision(const Entity& entity) {
         std::vector<Vec2> vertexPos = entity.m_tVertices;
         std::vector<Index> indexArray = entity.m_indexBuffer;
@@ -94,7 +87,7 @@ public:
         float dis2 = pointLineDistance(m_translation, plc);
         float s = distance(mid, start);
 
-        return dis < getRadius() && dis2 < (getRadius() + s);
+        return dis < m_radius && dis2 < (m_radius + s);
     }
 
     //add paddle spin force to ball velocity
@@ -119,8 +112,8 @@ public:
         float rMag = radius.magnitude() * paddle.getAngularSpeed();
         Vec2 rotVector = rHat * rMag;
 
-        Vec2 term1 = side * ((rotVector + getVelocity()) * side) * 0.5f; //side velocity
-        Vec2 term2 = normal * ((rotVector - getVelocity()) * normal) * 0.5f; //perpendicular velocity
+        Vec2 term1 = side * ((rotVector + m_velocity) * side) * 0.5f; //side velocity
+        Vec2 term2 = normal * ((rotVector - m_velocity) * normal) * 0.5f; //perpendicular velocity
 
         if(term2 * normal < 0 || (term2 * normal > 0 && term2.magnitude() < rotVector * normal)) {
             term2 = normal * (rotVector * normal);

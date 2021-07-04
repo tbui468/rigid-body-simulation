@@ -3,7 +3,7 @@
 
 #include "Entity.hpp"
 #include "Math.hpp"
-#include "Shape.hpp"
+#include "Vertex.hpp"
 
 namespace rbs{
 
@@ -14,9 +14,9 @@ public:
     float m_angularSpeed;
 public:
 
-    Paddle(float width, float height, float angularSpeed): Entity(Shape::makeStar(20.0f, 60.0f, 3)), m_width(width), m_height(height), m_angularSpeed(angularSpeed) {};
-    //Paddle(float width, float height, float angularSpeed): Entity(Shape::makeTriangle(60.0f)), m_width(width), m_height(height), m_angularSpeed(angularSpeed) {};
-//Paddle(float width, float height, float angularSpeed): Entity(Shape::makeRectangle(width, height)), m_width(width), m_height(height), m_angularSpeed(angularSpeed) {};
+    Paddle(Vertex shape, float width, float height, float angularSpeed): Entity(shape), m_width(width), m_height(height), m_angularSpeed(angularSpeed) {};
+
+    //should move this into entity (and do the same thing for the balls)
     void update(float deltatime) {
         rotateBy(m_angularSpeed * deltatime);
     }

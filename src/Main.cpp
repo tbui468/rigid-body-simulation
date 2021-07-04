@@ -16,6 +16,7 @@
 #include "CoordinateTransformer.hpp"
 #include "Ball.hpp"
 #include "Paddle.hpp"
+#include "Shape.hpp"
 
 using namespace rbs;
 
@@ -26,11 +27,13 @@ int main()
 
     CoordinateTransformer ct(screen);
     Camera camera(ct);
+    Vertex star = Shape::makeStar(20.0f, 60.0f, 3);
+    Vertex triangle = Shape::makeTriangle(60.0f);
+    Vertex rectangle = Shape::makeRectangle(100.0f, 25.0f);
 
-
-    Paddle paddle0(20.0f, 200.0f, 0.01f);
-    Paddle paddle1(20.0f, 200.0f, -0.01f);
-    Paddle paddle2(20.0f, 200.0f, -0.01f);
+    Paddle paddle0(star, 20.0f, 200.0f, 0.01f);
+    Paddle paddle1(triangle, 20.0f, 200.0f, -0.01f);
+    Paddle paddle2(rectangle, 20.0f, 200.0f, -0.01f);
 
     paddle0.moveTo({-100.0f, -150.0f});
     paddle1.moveTo({100.0f, -150.0f});

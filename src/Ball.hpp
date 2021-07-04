@@ -31,7 +31,7 @@ public:
     void update(float deltaTime) {
         m_velocity.y += g;
         m_velocity.x *= 0.99f;
-        Vec2 pos = getPosition();
+        Vec2 pos = m_translation;
         moveBy(m_velocity * deltaTime);
         if(pos.y > 300.0f) {
             moveTo({pos.x, -300.0f});
@@ -65,16 +65,16 @@ public:
     }
 
     std::optional<Vec2> entityCollision(const Entity& entity) {
-        std::vector<Vec2> vertexPos = entity.getTransformedArray();
-        std::vector<Index> indexArray = entity.getIndexArray();
+        std::vector<Vec2> vertexPos = entity.m_tVertices;
+        std::vector<Index> indexArray = entity.m_indexBuffer;
         for(const Index& index: indexArray) {
             Vec2 start = vertexPos.at(index.x);
             Vec2 end = vertexPos.at(index.y);
             if(lineCollision(start, end)) {
-                std::vector<Vec2> normalArray = entity.getNormalArray();        
+                std::vector<Vec2> normalArray = entity.m_normalArray;
                 Vec2 normal2 = normalArray.at(index.z);
                 Vec3 normal3 = {normal2.x, normal2.y, 1.0f};
-                normal3 = Mat3::rotate(entity.getAngle()) * normal3;
+                normal3 = Mat3::rotate(entity.m_angle) * normal3;
                 //rotate normal
                 return std::optional<Vec2>({normal3.x, normal3.y});
             }
@@ -87,11 +87,11 @@ public:
     {
         //check colllision with line < r
         LinearCoefficients lc = getCoefficients(start, end);
-        float dis = pointLineDistance(getPosition(), lc);
+        float dis = pointLineDistance(m_translation, lc);
         //check collision with perp. line  < s + r
         Vec2 mid = midpoint(start, end);
         LinearCoefficients plc = getPerpCoefficients(lc, mid);
-        float dis2 = pointLineDistance(getPosition(), plc);
+        float dis2 = pointLineDistance(m_translation, plc);
         float s = distance(mid, start);
 
         return dis < getRadius() && dis2 < (getRadius() + s);
@@ -111,9 +111,9 @@ public:
 
         side = side * (1.0f/side.magnitude());
         Mat2 rot180 = {{-1.0f, 0.0f},{0.0f, -1.0f}};
-        Vec2 intersection = getPosition() + (rot180 * normal) * m_radius; 
+        Vec2 intersection = m_translation + (rot180 * normal) * m_radius; 
 
-        Vec2 radius = intersection - paddle.getPosition();
+        Vec2 radius = intersection - paddle.m_translation;
         Vec2 rHat = radius * (1.0f/radius.magnitude());
         rHat = paddle.getAngularSpeed() > 0.000f ? rot * rHat : rot *  rHat;
         float rMag = radius.magnitude() * paddle.getAngularSpeed();
